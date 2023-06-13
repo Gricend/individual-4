@@ -1,6 +1,6 @@
 from typing import Any, Dict
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.views.generic import TemplateView
 from principal.forms import FormularioContactoForm
@@ -49,6 +49,7 @@ class ContactoView(TemplateView):
             registro.save()
 
             mensajes = { "enviado": True, "resultado": "Mensaje enviado correctamente" }
+            return redirect('landing')
         else:
             mensajes = { "enviado": False, "resultado": form.errors }
         return render(request, self.template_name, { "formulario": form, "mensajes": mensajes})
