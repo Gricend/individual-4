@@ -38,7 +38,7 @@ class FormularioContactoForm(forms.Form):
                                 })
                                 )
     mensaje = forms.CharField(label='Mensaje', required=True,
-                                max_length=1000, min_length=50,
+                                max_length=1000,
                                 error_messages={
                                 'required': 'El email es obligatorio',
                                 'max_length': 'El email no puede superar los 1000 caracteres',
